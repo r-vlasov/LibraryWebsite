@@ -20,11 +20,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< HEAD
+
 SECRET_KEY = 'uv)b)g#hh(+!_o(bi6zw2*(sikof_duop^c(be8qhc*)98t%9i'
-=======
-SECRET_KEY = '^^8h064sut(u6a_p9@%s22)wi!ua^%m5$cc9(_fk9w3$b=2*ly'
->>>>>>> 850f230b48f2759d20b945dd6b7fa02ed2c54c50
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,10 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'catalog.apps.CatalogConfig',
-=======
->>>>>>> 850f230b48f2759d20b945dd6b7fa02ed2c54c50
+
 ]
 
 MIDDLEWARE = [
@@ -113,11 +109,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-<<<<<<< HEAD
 TIME_ZONE = 'Europe/Moscow'
-=======
-TIME_ZONE = 'UTC'
->>>>>>> 850f230b48f2759d20b945dd6b7fa02ed2c54c50
+
 
 USE_I18N = True
 

@@ -1,5 +1,4 @@
 from django.db import models
-<<<<<<< HEAD
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
 import uuid # Required for unique book instances
 
@@ -94,7 +93,5 @@ class Author(models.Model):
         String for representing the Model object.
         """
         return '%s, %s' % (self.last_name, self.first_name)
-=======
 
 # Create your models here.
->>>>>>> 850f230b48f2759d20b945dd6b7fa02ed2c54c50
