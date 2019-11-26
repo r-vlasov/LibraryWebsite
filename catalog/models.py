@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse #Used to generate URLs by reversing the URL patterns
+from django.contrib import admin
 import uuid # Required for unique book instances
 
 class Genre(models.Model):
@@ -41,7 +42,15 @@ class Book(models.Model):
         Returns the url to access a particular book instance.
         """
         return reverse('book-detail', args=[str(self.id)])
+        
+    def display_genre(self):
+        """
+        Creates a string for the Genre. This is required to display genre in Admin.
+        """
+        return ', '.join([ genre.name for genre in self.genre.all()[:3] ])
 
+
+    display_genre.short_description = 'Genre'
 
 class BookInstance(models.Model):
     """
@@ -94,4 +103,27 @@ class Author(models.Model):
         """
         return '%s, %s' % (self.last_name, self.first_name)
 
-# Create your models here.
+
+# Define the admin class
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('last_name', 'first_name', 'date_of_birth', 'date_of_death')
+    fields = ['first_name', 'last_name', ('date_of_birth', 'date_of_death')]
+
+# Register the Admin classes for Book using the decorator
+@admin.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'display_genre')
+
+# Register the Admin classes for BookInstance using the decorator
+
+@admin.register(BookInstance) 
+class BookInstanceAdmin(admin.ModelAdmin):
+    list_filter = ('status', 'due_back')
+    fieldsets = (
+        (None, {
+            'fields': ('book','imprint', 'id')
+        }),
+        ('Availability', {
+            'fields': ('status', 'due_back')
+        }),
+    )
