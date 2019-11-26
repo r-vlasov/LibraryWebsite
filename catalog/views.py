@@ -30,7 +30,7 @@ def index(request):
 # Обобщенное отображение ищет файл шаблона /application_name/the_model_name_list.html 
 class BookListView(generic.ListView):
     model = Book
-    paginate_by = 1 # paginating (page input/output)
+    paginate_by = 10 # paginating (page input/output)
 
 # Пять наиболее популярных книг
 # №1
@@ -44,3 +44,11 @@ class BookListView(generic.ListView):
 
 class BookDetailView(generic.DetailView):
     model = Book
+
+
+class AuthorListView(generic.ListView):
+    model = Author
+    paginate_by = 10
+
+class AuthorDetailView(generic.DetailView):
+    model = Author
